@@ -1,0 +1,183 @@
+<div class="kung_fu_china_home">
+    <el-container>
+        <my-header></my-header>
+        <el-main class="w1024">
+            <el-row class="menus_wrap">
+                <ul>
+                    <li v-for="(item, i) in menus" :key="i" class="menu">
+                        <a class="i_link">{{ item.name }}</a>
+                    </li>
+                </ul>
+            </el-row>
+            <!-- 推荐菜单1 -->
+            <el-row class="two_bevel_wrap">
+                <a class="i_link" v-for="(item, i) in twoBevel1" :key="i">{{ item.name }}</a>
+            </el-row>
+            <!-- 广告 -->
+            <ad-1024/>
+            <!-- 推荐菜单1 -->
+            <el-row class="two_bevel_wrap">
+                <a class="i_link" v-for="(item, i) in twoBevel2" :key="i">{{ item.name }}</a>
+            </el-row>
+            <!-- 新闻 -->
+            <el-row>
+                <el-col :span="12" class="news_list_wrap">
+                    <ul class="news_list">
+                        <li v-for="(item, i) in newsList" :key="i" :title="item.title">
+                            <a href="" v-text="item.title" class="one_row_text"></a>
+                        </li>
+                    </ul>
+                </el-col>
+                <el-col :span="12">
+                    <el-carousel class="new_carousel" height="350px" :interval="50000">
+                        <!-- <el-carousel-item v-for="(item, i) in carousel" :key="i">
+                            <img :src="item.img" :alt="item.title">
+                        </el-carousel-item> -->
+                        <el-carousel-item v-for="item in 3" :key="item">
+                            <h3>{{ item }}</h3>
+                        </el-carousel-item>
+                    </el-carousel>
+                </el-col>
+            </el-row>
+            <!-- 广告 -->
+            <ad-row-3></ad-row-3>
+            <!-- 直播、选手排行 -->
+            <el-row class="live_player_rank">
+                <el-col :span="16" class="live_wrap">
+                    <h4 class="modal_title_wrap"><img :src="icon01" alt="直播"><el-link class="modal_title">直播</el-link></h4>
+                    <el-row>
+                        <el-col :span="12">
+                            <div class="live_cover">直播封面</div>
+                        </el-col>
+                        <el-col :span="12" class="live_msg">
+                            <div class="live_time"><strong>【正在直播】</strong><span class="time">2020-11-29 21:40</span></div>
+                            <h4 class="live_title">拳王争霸战！！！</h4>
+                            <div class="live_player"><span>张三</span><em style="font-size: 16px;color: #DA3C40;">VS</em><span>王五</span></div>
+                            <p class="live_place t_r">体育馆</p>
+                            <p class="live_synopsis">虽然乔布斯的建议听起来不太靠谱，但马克认为，如果没有史蒂夫的建议，Salesforce就不会取得今天的成功。虽然乔布斯的建议听起来不太靠谱，但马克认为，如果没有......</p>
+                        </el-col>
+                    </el-row>
+                    <h4 class="modal_title_wrap"><img :src="icon04" alt="特卫服务"><el-link class="modal_title">特卫服务</el-link></h4>
+                    <el-row class="bodyguard_wrap">
+                        <ul>
+                            <li><p>安保</p></li>
+                            <li><p>保镖</p></li>
+                            <li><p>护送</p></li>
+                            <li><p>陪护</p></li>
+                            <li><p>运送</p></li>
+                        </ul>
+                    </el-row>
+                    <el-row class="ad">
+                        <span class="links_font">广告</span>
+                    </el-row>
+                </el-col>
+                <el-col :span="8">
+                    <h4 class="modal_title_wrap"><img :src="icon02" alt="直播"><el-link class="modal_title">排行榜</el-link></h4>
+                    <div class="player_rank">
+                        <el-row v-for="(item, i) in playerRank" :key="i" class="player">
+                            <el-col :span="4">
+                                <span class="head_portrait"></span>
+                            </el-col>
+                            <el-col :span="16" class="player_info">
+                                <div>姓名：<span class="name" v-text="item.name"></span> &nbsp;&nbsp; 获胜次数：<span v-text="item.winNum"></span></div>
+                                <p class="player_synopsis" v-text="item.synopsis"></p>
+                            </el-col>
+                            <el-col :span="4">
+                                <img :src="icon03" alt="点赞" class="praise_num_img">
+                                <span class="praise_num" v-text="item.praiseNum"></span>
+                            </el-col>
+                        </el-row>
+                    </div>
+                    
+                </el-col>
+            </el-row>
+
+            <!-- 定制赛事 -->
+            <el-row class="made_match_wrap">
+                <el-col :span="16" style="padding-right: 10px;">
+                    <el-row>
+                        <el-col :span="12">
+                            <h4 class="modal_title_wrap"><img :src="icon05" alt="定制赛事"><el-link class="modal_title">定制赛事</el-link></h4>
+                        </el-col>
+                        <el-col :span="12" class="t_r">
+                            <el-button size="mini" plain>刷新</el-button>
+                            <el-button size="mini" plain>月排行榜</el-button>
+                        </el-col>
+                    </el-row>
+                    <el-row class="table_caption">
+                        <el-col :span="12" class="t_l">
+                            <span>定制赛事排行榜</span>
+                        </el-col>
+                        <el-col :span="12" class="t_r">
+                            <el-button type="text">我来定制</el-button>
+                        </el-col>
+                    </el-row>
+                    <table class="made_match_t">
+                        <tbody>
+                            <tr v-for="(item, i) in madeMatchList" :key="i">
+                                <td width="70">
+                                    <span class="head_portrait"></span>
+                                </td>
+                                <td width="200">
+                                    {{ item.player1 }} &nbsp; <strong style="color: #EE0129;">VS</strong>  &nbsp; {{ item.player2 }}
+                                </td>
+                                <td width="70">
+                                    <span class="head_portrait"></span>
+                                </td>
+                                <td width="70">
+                                    <span v-text="item.thumbsUp" :data="[808, 1475, 1426, 1884, 1396]"></span>
+                                </td>
+                                <td>
+                                    <!-- <spark-line /> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </el-col>
+                <el-col :span="8" style="padding-top: 40px;">
+                    <ad-demo :width="340" :height="280" />
+                </el-col>
+            </el-row>
+            <!-- 优秀学员 -->
+            <el-row class="excellent_athlete_wrap">
+                <h4 class="modal_title_wrap"><img :src="icon06" alt="优秀学员"><el-link class="modal_title">优秀学员</el-link></h4>
+                <ul>
+                    <li v-for="(item, i) in excellentAthlete" :key="i">
+                        <p>{{item.name}}</p>
+                    </li>
+                </ul>
+            </el-row>
+            <!-- 广告 -->
+            <ad-row-3></ad-row-3>
+            <!-- 更多分类 -->
+            <el-row class="more_classify_wrap">
+                <el-col :span="8" v-for="(item, i) in moreClassify">
+                    <div class="classify_list">
+                        <h3>
+                            <span v-text="item.classify"></span>
+                            <el-button class="to_more" type="text">&gt;&gt;</el-button>
+                        </h3>
+                        <!-- <div class="cl_bigimg">
+                            <p v-text="item.list[0].title"></p>
+                        </div> -->
+                        <ul>
+                            <li v-for="(d, idx) in item.list">
+                                <div class="cl_bigimg" v-if="idx == 0">
+                                    <p v-text="d.title"></p>
+                                </div>
+                                <div v-else class="no_img">
+                                    <a href="" v-text="d.title"></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </el-col>
+            </el-row>
+            <!-- 广告 -->
+            <ad-demo :width="1024" :height="100" />
+
+
+        </el-main>
+        <my-footer />
+    </el-container>
+</div>
