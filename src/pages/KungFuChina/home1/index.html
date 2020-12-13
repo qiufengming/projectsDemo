@@ -1,0 +1,268 @@
+<div class="kung_fu_china_home">
+    <div class="header_bg">
+        <div class="header_top">
+            <el-row class="w1024">
+                <el-col :span="12">
+                    <!-- headerData.topNav -->
+                    <ul class="top_nav_wrap">
+                        <li v-for="item in headerData.topNav" :key="item.id">
+                            <el-button type="text" class="btn_nav" @click="clickHeaderNav(item)"> {{ item.name }} </el-button>
+                        </li>
+                    </ul>
+                </el-col>
+                <el-col :span="12" class="t_r top_right">
+                    <ul>
+                        <li class="stock_code">股票代码：<span v-text="headerData.stockCode"></span></li>
+                        <li class="collection_site">
+                            <el-button type="text" class="btn_collection" @click="addFavorite" icon="el-icon-star-off">收藏本站</el-button>
+                            
+                        </li>
+                        <li class="down_app" @mouseover="mouseoverDownApp" @mouseout="mouseoutDownApp">
+                            <el-button type="text" class="btn_down_app" icon="el-icon-mobile-phone" >下载APP</el-button>
+                            <div id="qrCode" ref="downAppCode" class="down_app_code" v-show="showDownAppCode"></div>
+                        </li>
+                        <li class="login_box">
+                            <el-button type="text" class="btn_login">登录</el-button>
+                            |
+                            <el-button type="text" class="btn_register">注册</el-button>
+                        </li>
+                    </ul>
+                </el-col>
+            </el-row>
+        </div>
+        <div class="header_bottom">
+            <el-row class="w1024">
+                <el-col :span="24" class="logo_wrap">
+                    <img :src="logo" alt="LOGO" class="img_logo">
+                </el-col>
+                <el-col :span="18" class="citys_wrap">
+                    <ul class="top_nav_wrap">
+                        <li v-for="item in headerData.citys" :key="item.id">
+                            <el-button type="text" class="btn_city" @click="clickHeaderCity(item)"> {{ item.name }} </el-button>
+                        </li>
+                    </ul>
+                </el-col>
+                <el-col :span="6" class="search_wrap">
+                    <el-input placeholder="搜赛事" v-model="keyword" class="input_search">
+                        <el-button slot="append" icon="el-icon-search"></el-button>
+                    </el-input>
+                </el-col>
+            </el-row>
+        </div>
+    </div>
+    <div class="page_cont_wrap">
+        <el-row class="w1024">
+            <el-row class="menus_wrap">
+                <ul>
+                    <li v-for="(item, i) in menus" :key="i" class="menu">
+                        <el-button type="text" class="btn_menu" @click="clickHeaderNav(item)"> {{ item.name }} </el-button>
+                    </li>
+                </ul>
+            </el-row>
+            <el-row class="ad_wrap">
+                <ad-demo :width="1024" :height="90" :bg-color="'#16150D'" :font-color="'#D2B831'" />
+            </el-row>
+            <el-row class="news_wrap">
+                <el-col :span="8">
+                    <ul class="news_list">
+                        <li v-for="(item, i) in newsList" :key="i" :title="item.title">
+                            <!-- <a href="" v-text="item.title" class="one_row_text"></a> -->
+                            <el-link @click="goPage(item.link)" class="new_link">{{ item.title }}</el-link>
+                        </li>
+                    </ul>
+                </el-col>
+                <el-col :span="16">
+                    <el-carousel class="new_carousel" height="350px" :interval="5000">
+                        <el-carousel-item v-for="item in 5" :key="item">
+                            <h3>{{ item }}</h3>
+                        </el-carousel-item>
+                    </el-carousel>
+                </el-col>
+            </el-row>
+            <el-row class="ad_wrap">
+                <el-col :span="8">
+                    <ad-demo :width="341" :height="130" :bg-color="'#421439'" :font-color="'#ffffff'" />
+                </el-col>
+                <el-col :span="8">
+                    <ad-demo :width="341" :height="130" :bg-color="'#5904DB'" :font-color="'#ffffff'" />
+                </el-col>
+                <el-col :span="8">
+                    <ad-demo :width="341" :height="130" :bg-color="'#34104E'" :font-color="'#FF5C40'" />
+                </el-col>
+            </el-row>
+            <el-row class="match_relative">
+                <el-col :span="16">
+                    <el-row class="live_wrap">
+                        <h4 class="modal_title_wrap"><img :src="icon01" alt="直播"><el-link class="modal_title">直播</el-link></h4>
+                        <el-row>
+                            <el-col :span="12">
+                                <div class="live_cover">直播封面</div>
+                            </el-col>
+                            <el-col :span="12" class="live_msg">
+                                <div class="live_time"><strong>【正在直播】</strong><span class="time">2020-11-29 21:40</span></div>
+                                <h4 class="live_title">拳王争霸战！！！</h4>
+                                <div class="live_player"><span>张三</span><em style="font-size: 16px;color: #DA3C40;">VS</em><span>王五</span></div>
+                                <p class="live_place t_r">体育馆</p>
+                                <p class="live_synopsis">虽然乔布斯的建议听起来不太靠谱，但马克认为，如果没有史蒂夫的建议，Salesforce就不会取得今天的成功。虽然乔布斯的建议听起来不太靠谱，但马克认为，如果没有......</p>
+                            </el-col>
+                        </el-row>
+                    </el-row>
+                    <el-row class="bodyguard_wrap">
+                        <h4 class="modal_title_wrap">
+                            <img :src="icon02" alt="特卫服务"><el-link class="modal_title">特卫服务</el-link>
+                            <el-button type="text" class="btn_more">更多<i class="el-icon-caret-right"></i></el-button>
+                        </h4>
+                        <el-row class="bodyguard_list">
+                            <ul>
+                                <li><p>贴身保镖</p></li>
+                                <li><p>财务护送</p></li>
+                                <li><p>高级特卫</p></li>
+                                <li><p>现场维护</p></li>
+                                <li><p>护送专员</p></li>
+                            </ul>
+                        </el-row>
+                    </el-row>
+                    <el-row class="made_match">
+                        <h4 class="modal_title_wrap">
+                            <img :src="icon03" alt="特卫服务"><el-link class="modal_title">定制赛事</el-link>
+                            <el-button type="text" class="btn_refresh">刷新<i class="el-icon-refresh"></i></el-button>
+                            <el-button type="text" class="btn_month_rank">月排行榜<i class="el-icon-arrow-right"></i></el-button>
+                        </h4>
+                        <el-row class="table_caption">
+                            <el-col :span="12" class="t_l">
+                                <span>定制赛事排行榜</span>
+                            </el-col>
+                            <el-col :span="12" class="t_r">
+                                <el-button type="text">我来定制</el-button>
+                            </el-col>
+                        </el-row>
+                        <table class="made_match_t">
+                            <tbody>
+                                <tr v-for="(item, i) in madeMatchList" :key="i">
+                                    <td width="70">
+                                        <span class="head_portrait"></span>
+                                    </td>
+                                    <td width="200">
+                                        {{ item.player1 }} &nbsp; <strong style="color: #EE0129;">VS</strong>  &nbsp; {{ item.player2 }}
+                                    </td>
+                                    <td width="70">
+                                        <span class="head_portrait"></span>
+                                    </td>
+                                    <td width="70">
+                                        <span v-text="item.thumbsUp" :data="[808, 1475, 1426, 1884, 1396]"></span>
+                                    </td>
+                                    <td>
+                                        <!-- <spark-line /> -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </el-row>
+                </el-col>
+                <el-col :span="8">
+                    <el-row class="rank_list">
+                        <h4 class="modal_title_wrap"><img :src="icon04" alt="直播"><el-link class="modal_title">排行榜</el-link></h4>
+                        <div class="player_rank">
+                            <el-row v-for="(item, i) in playerRank" :key="i" class="player">
+                                <el-col :span="4">
+                                    <span class="head_portrait"></span>
+                                </el-col>
+                                <el-col :span="16" class="player_info">
+                                    <div>姓名：<span class="name" v-text="item.name"></span> &nbsp;&nbsp; 获胜次数：<span v-text="item.winNum"></span></div>
+                                    <p class="player_synopsis" v-text="item.synopsis"></p>
+                                </el-col>
+                                <el-col :span="4">
+                                    <img :src="icon05" alt="点赞" class="praise_num_img">
+                                    <span class="praise_num" v-text="item.praiseNum"></span>
+                                </el-col>
+                            </el-row>
+                        </div>
+                    </el-row>
+                    <el-row>
+                        <ad-demo :width="341" :height="220" :bg-color="'#393633'" :font-color="'#F4D418'" />
+                    </el-row>
+                </el-col>
+            </el-row>
+            <el-row class="excellent_athlete">
+                <h4 class="modal_title_wrap">
+                    <img :src="icon06" alt="特卫服务"><el-link class="modal_title">优秀学员</el-link>
+                    <el-button type="text" class="btn_more">更多<i class="el-icon-caret-right"></i></el-button>
+                </h4>
+                <ul>
+                    <li v-for="(item, i) in excellentAthlete" :key="i">
+                        <p>{{item.name}}</p>
+                    </li>
+                </ul>
+            </el-row>
+            <el-row class="ad_wrap">
+                <el-col :span="8">
+                    <ad-demo :width="341" :height="130" :bg-color="'#421439'" :font-color="'#ffffff'" />
+                </el-col>
+                <el-col :span="8">
+                    <ad-demo :width="341" :height="130" :bg-color="'#5904DB'" :font-color="'#ffffff'" />
+                </el-col>
+                <el-col :span="8">
+                    <ad-demo :width="341" :height="130" :bg-color="'#34104E'" :font-color="'#FF5C40'" />
+                </el-col>
+            </el-row>
+            <el-row class="more_classify_wrap">
+                <el-col :span="8" v-for="(item, i) in moreClassify" :key="i">
+                    <div class="classify_list">
+                        <h3>
+                            <span v-text="item.classify"></span>
+                            <el-button class="to_more" type="text">&gt;&gt;</el-button>
+                        </h3>
+                        <ul>
+                            <li v-for="(d, idx) in item.list">
+                                <div class="cl_bigimg" v-if="idx == 0">
+                                    <p v-text="d.title"></p>
+                                </div>
+                                <div v-else class="no_img">
+                                    <a href="" v-text="d.title"></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </el-col>
+            </el-row>
+            <el-row class="ad_wrap">
+                <ad-demo :width="1024" :height="90" :bg-color="'#16150D'" :font-color="'#D2B831'" />
+            </el-row>
+            <el-row class="more_classify_wrap">
+                <el-col :span="8" v-for="(item, i) in moreClassify" :key="i">
+                    <div class="classify_list">
+                        <h3>
+                            <span v-text="item.classify"></span>
+                            <el-button class="to_more" type="text">&gt;&gt;</el-button>
+                        </h3>
+                        <ul>
+                            <li v-for="(d, idx) in item.list">
+                                <div class="cl_bigimg" v-if="idx == 0">
+                                    <p v-text="d.title"></p>
+                                </div>
+                                <div v-else class="no_img">
+                                    <a href="" v-text="d.title"></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </el-col>
+            </el-row>
+            <!-- 滚动广告  -->
+            <el-row class="roll_ads_wrap"></el-row>
+            <el-row class="ad_wrap">
+                <el-col :span="8">
+                    <ad-demo :width="341" :height="130" :bg-color="'#421439'" :font-color="'#ffffff'" />
+                </el-col>
+                <el-col :span="8">
+                    <ad-demo :width="341" :height="130" :bg-color="'#5904DB'" :font-color="'#ffffff'" />
+                </el-col>
+                <el-col :span="8">
+                    <ad-demo :width="341" :height="130" :bg-color="'#34104E'" :font-color="'#FF5C40'" />
+                </el-col>
+            </el-row>
+            
+        </el-row>
+    </div>
+    <my-footer />
+</div>

@@ -1,7 +1,7 @@
 <template>
     <div class="links_wrap" :style="{width: width+'px', height: height+'px'}">
         <div class="link">
-            <h2 :style="{width: width+'px', height: height+'px', 'line-height': height+'px'}">广告</h2>
+            <h2 :style="{width: width+'px', height: height+'px', 'line-height': height+'px', 'background-color': bgColor, color: fontColor}">广告</h2>
             <span class="links_font" style="display: block;">广告</span>
         </div>
     </div>
@@ -17,6 +17,12 @@
             },
             height: {
                 default: 100
+            },
+            bgColor: {
+                default: '#9cd6f4'
+            },
+            fontColor: {
+                default: '#ffffff'
             },
         },
         data(){
@@ -35,8 +41,10 @@
 <style lang="less" rel="stylesheet/less" type="text/less" scoped>
 .links_wrap{
     position: relative;
-    .link{ width: 100%; height: 100%; position: relative; text-align: center; }
-    h2{ color: #fff; background-color: #9cd6f4; }
+    .link{ 
+        width: 100%; height: 100%; position: relative; text-align: center;
+    }
+    /* h2{ color: #fff; background-color: #9cd6f4; } */
     .link_1024{
         height: 100px; overflow: hidden;
     }

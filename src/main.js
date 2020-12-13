@@ -8,6 +8,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import QFM from './script/common.js'
+import echarts from 'echarts';
+
 
 Vue.config.productionTip = false
 
@@ -15,6 +17,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI);
 Window.Q = QFM;
 Vue.prototype.$http = axios;
+Vue.prototype.$echarts = echarts;
 
 /* eslint-disable no-new */
 new Vue({

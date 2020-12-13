@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
+    "server": "node build/server.js",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
@@ -15,9 +16,11 @@
   },
   "dependencies": {
     "axios": "^0.21.0",
+    "echarts": "^5.0.0",
     "element-ui": "^2.14.1",
     "less": "^3.12.2",
     "less-loader": "^5.0.0",
+    "qrcodejs2": "^0.0.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

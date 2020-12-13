@@ -1,6 +1,5 @@
 <template>
     <div class="kung_fu_china">
-        功夫中国
         <router-view/>
     </div>
 </template>

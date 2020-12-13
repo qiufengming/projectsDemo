@@ -1,0 +1,214 @@
+<div class="kung_fu_live_room">
+    <div>
+        <my-header></my-header>
+        <el-row class="live_room_wrap">
+            <div class="left">
+                <h5>
+                    <span class="player1">{{ liveInfo.player1Info.name }}</span>贡献榜
+                    <a href="" class="support_left">
+                        <i class="el-icon-thumb"></i>
+                        <span class="num">{{ liveInfo.player1Info.supportNum }}</span>
+                    </a>
+                </h5>
+                <div class="contribute_box">
+                    <table>
+                        <tbody>
+                            <tr v-for="(item, i) in liveInfo.player1Info.contributes" :key="i">
+                                <td class="rankNo">{{ i+1 }}</td>
+                                <td class="nickname" :title="item.name">{{item.name}}</td>
+                                <td class="goldNum"><span class="gold_usd">$</span>{{item.goldNum}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="8" style="border-top: 1px solid #EDEEF0;color: #646C7A;">我的贡献值:&nbsp;<span class="gold_usd">$</span>{{liveInfo.player1Info.myContributes}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="support_rate_title">选手支持率统计</div>
+                <div class="support_rate_cartogram" ref="supportRateCartogram"></div>
+                <!-- 赞助 -->
+                <ad-demo :width="266" :height="200" />
+    		    <!-- <div class="sponsor" style=""><a href="investmentMessage.html" target="_blank">点击赞助</a><a class="links_font">广告</a></div> -->
+            </div>
+            <div class="center">
+                <el-row class="live_title">
+                    <div class="live_title_left">
+                        <span class="live_cover">直播封面</span>
+                    </div>
+                    <div class="live_title_center">
+                        <h3 title="拳王争霸赛" class="title">拳王争霸赛</h3>
+                        <p>
+                            <span class="player_1">阿拉斯加</span>&nbsp;&nbsp;
+                            <span class="portrait">Img</span>
+                            &nbsp;&nbsp;<span class="vs">VS</span>&nbsp;&nbsp;
+                            <span class="portrait">Img</span>
+                            &nbsp;&nbsp;
+                            <span class="player_2">朴春雷腾</span>
+                        </p>
+                    </div>
+                    <div class="live_title_right">
+                        <p class="launch_time" style="">2020-11-11 12:00</p>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><span class="state" style="">LIVE</span></td>
+                                    <td><a href=""><img :src="icon01">点赞</a><span class="thumbsup_num">154</span></td>
+                                    <td class="audience"><span></span>158 人</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </el-row>
+                <el-row class="live_video">
+                    <!-- 大窗口 -->
+    			    <video ref="videoBig" class="video_big video-js vjs-big-play-centered " x-webkit-airplay="allow" webkit-playsinline poster="">
+                        <!-- <source src="../video/xinduclub.mp4" type="video/mp4">		 -->
+                    </video>
+                    <!-- 小窗口 -->
+                    <video ref="videoSmall" class="video_small" x-webkit-airplay="allow" webkit-playsinline poster="">
+                        <!-- <source src="../video/xinduclub.mp4" type="video/mp4">	 -->		
+                    </video>
+                    <div id="show_d" class="mask"></div>
+                </el-row>
+                <!-- 礼物 -->
+                <el-row class="live_gift">
+                    <el-row class="live_gift_list">
+                        <div class="live_state">赛事未开始</div>
+                        <ul class="gifts" >
+                            <li v-for="(item, i) in 6" :key="i" class="gift">{{ 'gift'+item }}</li>
+                        </ul>
+                    </el-row>
+                    <el-row class="t_r">
+                        <div class="my_gold d_ib">
+                            <img :src="icon02" alt="金币">
+                            <span class="gold_num">100</span>
+                            <el-button class="buy_gold_btn" type="text">购买</el-button>
+                        </div>
+                        <div class="d_ib share_page">
+                            <el-button class="share_btn" type="text">分享</el-button>
+                        </div>
+                        <div class="d_ib close_mask">
+                            <el-button class="default_btn active_btn mask_btn">弹幕</el-button>
+                        </div>
+                        <div class="d_ib change_video">
+                            <el-button class="default_btn active_btn">关闭小窗口</el-button>
+                            <el-button class="default_btn active_btn">进入解说频道</el-button>
+                        </div>
+                    </el-row>
+                </el-row>
+            </div>
+            <div class="right">
+                <h5>
+                    <span class="player1">{{ liveInfo.player2Info.name }}</span>贡献榜
+                    <a href="" class="support_left">
+                        <i class="el-icon-thumb"></i>
+                        <span class="num">{{ liveInfo.player2Info.supportNum }}</span>
+                    </a>
+                </h5>
+                <div class="contribute_box">
+                    <table>
+                        <tbody>
+                            <tr v-for="(item, i) in liveInfo.player2Info.contributes" :key="i">
+                                <td class="rankNo">{{ i+1 }}</td>
+                                <td class="nickname" :title="item.name">{{item.name}}</td>
+                                <td class="goldNum"><span class="gold_usd">$</span>{{item.goldNum}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="8" style="border-top: 1px solid #EDEEF0;color: #646C7A;">我的贡献值:&nbsp;<span class="gold_usd">$</span>{{liveInfo.player2Info.myContributes}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="chatroom_title">互动聊天</div>
+                <!-- 聊天室 -->
+                <div class="chatroom">
+                    <!-- <div class="container" v-html="chatList"> -->
+                    <div class="container">
+                        <!-- {id: '1', time: '2020-12-06 21:37:45', name: '小明', cont: '好棒啊~'}, -->
+                        <!-- <p class="text"><font color="#888A8B">2020-12-06 21:30:00</font><br><span class="portrait"></span>&nbsp;<font color="#3CD1F8">张三:</font>fsdsdhusd</p> -->
+                        <p class="text" v-for="(item, i) in chatList" :key="i"><font color="#888A8B">{{ item.time }}</font><br><span class="portrait"></span>&nbsp;<font color="#3CD1F8">{{ item.name }}:</font>{{ item.cont }}</p>
+                    </div>
+                    <el-row class="bottom">
+                        <!-- <div class="bottom_top">
+                            <div class="textarea content" v-model="inputCont" placeholder="我也来说一句..." contenteditable="true" maxlength="20" @blur="changeContent()" ></div>
+                            <a class="send" @click="sendChat">发表言论</a>
+                        </div> -->
+                        <el-row class="bottom_top">
+                            <el-input placeholder="我也来说一句..." v-model="inputCont" type="textarea" class="content"></el-input>
+                            <el-button class="send" @click="sendChat">发表言论</el-button>
+                            <!-- <el-input placeholder="我也来说一句..." v-model="inputCont" class="content">
+                                <el-button slot="append" class="send" @click="sendChat">发表言论</el-button>
+                            </el-input> -->
+                        </el-row>
+                        <el-row class="bottom_bottom">
+                            <el-col :span="12">
+                                <el-button type="text" title="弹幕颜文字" class="emoji_btn" @click="showHiddenEmojiList"></el-button>
+                                <div class="emoji_list" v-show="showEmoji">
+                                    <ul>
+                                        <li v-for="(item, i) in emojiList" :key="i"><a href="" @click="choiceEmoji(item)">{{item}}</a></li>
+                                    </ul>
+                                </div>
+                            </el-col>
+                            <el-col :span="12">
+                                <el-button title="弹幕颜文字" class="clear_screen" @click="clearScreen">清屏</el-button>
+                            </el-col>
+                            <!-- 文字表情 -->
+                            <!-- <div class="btn emoji_1" role="button" title="弹幕颜文字" @click="showHiddenEmojiList">
+                                <div class="emoji_list" v-show="showEmoji">
+                                    <ul>
+                                        <li v-for="(item, i) in emojiList" :key="i"><a href="" @click="choiceEmoji(item)">{{item}}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="javascript: clearScreen();" class="clear_screen" role="button">清屏</a>	    					 -->
+                        </el-row>	
+                    </el-row>
+                </div>
+            </div>
+        </el-row>
+        <el-row class="other_cont_wrap">
+            <el-row class="w1024">
+                <el-row class="match_synopsis">
+                    <h3>简介</h3>
+                    <textarea cols="30" rows="10" disabled>
+                        拳击（英文：Boxing，法文：Boxe）是戴拳击手套进行格斗的运动项目。它既有业余的（也称奥运拳击），也有职业性质的比赛。比赛的目标是要比对方获得更多的分以战胜对方或者将对方打倒而结束比赛。与此同时比赛者要力图避开对方的打击。
+                        拳击被称为“勇敢者的运动”。早在古希腊和罗马时代有着许多有关拳击的记载。在古代奥运中，拳击运动就已经是比赛项目之一。到第三届在圣路易斯举行的现代夏季奥运会，男子拳击正式被列入比赛项目。 
+                        拳击的起源可以追溯到远古时代。考古学家从公元前40世纪描写战争的埃及象形文字中，发现了有用于拳斗的护具“皮绷带”的描述，埃及士兵用这种“皮绷带”保护身体不受伤害，把肩臂到拳的部位全部包裹起来进行战斗。又从巴格达近郊发掘出来的许多带有拳斗的壁画和石雕上，发现了不少有关当时拳斗情景和搏斗场面的记载。拳击是从埃及经过地中海的克里特传播到古希腊的。
+古代拳击运动的发展是和古代奥林匹克竞技大会（公元前766年至公元394年）联系在一起的。约在公元前688年的第23届古代奥林匹克竞技会上，拳击被列为正式比赛项目，冠军为希腊人奥诺马斯图斯获得。当时运动员也是用牛皮制的“皮绷带”包扎在手指关节和小臂上进行比赛的。运动员裸体涂上橄榄油，不分体重级别，进行拳击比赛。一些古代拳斗家如：泰盖内斯、万菲莫斯、格拉乌卡斯、波地达穆斯和克雷伊托马库斯等。
+                    </textarea>
+                </el-row>
+                <hr />
+                <el-row class="recommend">
+                    <h3>精彩推荐</h3>
+                    <el-row class="recommend_list_wrap">
+                        <el-col :span="6" class="recommend_wrap">
+                            <div class="c_p">
+                                <p>【百科】拳击的分类</p>
+                            </div>
+                        </el-col>
+                        <el-col :span="6" class="recommend_wrap">
+                            <div class="c_p">
+                                <p>【直播】拳王争霸赛</p>
+                            </div>
+                        </el-col>
+                        <el-col :span="6" class="recommend_wrap">
+                            <div class="c_p">
+                                <p>【选手】朴春雷腾</p>
+                            </div>
+                        </el-col>
+                        <el-col :span="6" class="recommend_wrap">
+                            <div class="c_p">
+                                <p>【回访】晋级赛</p>
+                            </div>
+                        </el-col>
+                    </el-row>
+                </el-row>
+                <el-row class="sponsor_extension">
+                    <h3>赞助推广</h3>
+                    <ad-demo :width="1024" :height="105" />
+                </el-row>
+            </el-row>
+        </el-row>
+        <my-footer />
+    </div>
+</div>

@@ -1,7 +1,7 @@
 <div class="kung_fu_china_home">
-    <el-container>
+    <div>
         <my-header></my-header>
-        <el-main class="w1024">
+        <div class="w1024">
             <el-row class="menus_wrap">
                 <ul>
                     <li v-for="(item, i) in menus" :key="i" class="menu">
@@ -151,15 +151,12 @@
             <ad-row-3></ad-row-3>
             <!-- 更多分类 -->
             <el-row class="more_classify_wrap">
-                <el-col :span="8" v-for="(item, i) in moreClassify">
+                <el-col :span="8" v-for="(item, i) in moreClassify" :key="i">
                     <div class="classify_list">
                         <h3>
                             <span v-text="item.classify"></span>
                             <el-button class="to_more" type="text">&gt;&gt;</el-button>
                         </h3>
-                        <!-- <div class="cl_bigimg">
-                            <p v-text="item.list[0].title"></p>
-                        </div> -->
                         <ul>
                             <li v-for="(d, idx) in item.list">
                                 <div class="cl_bigimg" v-if="idx == 0">
@@ -175,9 +172,7 @@
             </el-row>
             <!-- 广告 -->
             <ad-demo :width="1024" :height="100" />
-
-
-        </el-main>
+        </div>
         <my-footer />
-    </el-container>
+    </div>
 </div>

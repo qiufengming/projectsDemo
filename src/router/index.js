@@ -4,6 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import projectHome from '@/pages/index'
 import KungFuChina from '@/pages/KungFuChina/index'
 import KungFuChinaHome from '@/pages/KungFuChina/home/index'
+import KungFuChinaHome1 from '@/pages/KungFuChina/home1/index'
+import KungFuChinaLiveRoom from '@/pages/KungFuChina/liveRoom/index'
 import standardLib from '@/pages/standardLib/index'
 
 Vue.use(Router)
@@ -24,7 +26,17 @@ export default new Router({
               path: 'KungFuChinaHome',
               name: 'KungFuChinaHome',
               component: KungFuChinaHome
-            }
+            },
+            {
+              path: 'home',
+              name: 'KungFuChinaHome1',
+              component: KungFuChinaHome1
+            },
+            {
+              path: 'liveRoom',
+              name: 'KungFuChinaLiveRoom',
+              component: KungFuChinaLiveRoom
+            },
           ]
         },
         {
