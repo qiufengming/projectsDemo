@@ -7,11 +7,14 @@ import KungFuChinaHome from '@/pages/KungFuChina/home/index'
 import KungFuChinaHome1 from '@/pages/KungFuChina/home1/index'
 import KungFuChinaLiveRoom from '@/pages/KungFuChina/liveRoom/index'
 import liveManager from '@/pages/liveManager/index'
+import liveManagerLiveList from '@/pages/liveManager/live/liveList/index.vue'
+// H:\D\dataGit\projectsDemo\src\pages\liveManager\live\liveList\index.vue
 import standardLib from '@/pages/standardLib/index'
 
 Vue.use(Router)
 
 export default new Router({
+  // mode: 'history',
   routes: [
     {
       path: '/',
@@ -43,7 +46,26 @@ export default new Router({
         {
           path: '/liveManager',
           name: 'liveManager',
-          component: liveManager
+          component: liveManager,
+          children: [
+            {
+              path: '',
+              name: '',
+              redirect: 'liveList',
+            },
+            {
+              path: 'liveList',
+              name: 'liveList',
+              component: liveManagerLiveList
+            },
+            // {
+            //   path: '',
+            //   components: {
+            //     default: () => import('@/pages/liveManager/live/liveList/index.vue'),
+            //     liveList: () => liveManagerLiveList,
+            //   }
+            // },
+          ]
         },
         {
           path: '/standardLib',

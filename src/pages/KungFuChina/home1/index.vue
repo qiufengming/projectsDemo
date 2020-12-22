@@ -1,6 +1,7 @@
 <template src="./index.html"></template>
 
 <script>
+    import { mapMutations, mapActions, mapGetters, mapState } from 'vuex' 
     import QRCode from 'qrcodejs2';
     import adDemo from './../commons/adDemo.vue'
     import footer1 from './../footer1/index.vue'
@@ -30,6 +31,12 @@
                 moreClassify: [],
             };
         },
+        computed: {
+            liveInfo(){
+                return this.$store.state.liveList[0];
+            },
+            ...mapGetters(['getterLiveList', 'getterPlayerList']),
+        },
         created(){
             let self = this;
             self.getHeaderData()
@@ -39,6 +46,7 @@
             self.getPlayerRank();
             self.getExcellentAthlete();
             self.getMoreClassify();
+            // self.getLiveList()
 
         },
         mounted(){
@@ -46,6 +54,9 @@
             self.createDownAppCode()
         },
         methods: {
+            ...mapActions( // 语法糖
+                ['getLiveList', 'getPlayerList'] // 相当于this.$store.dispatch('updateLiveList'),提交这个方法
+            ),
             // 获取头部数据
             getHeaderData(){
                 let self = this;
@@ -55,6 +66,7 @@
                         {id: '2', name: '在线订票', url: 'https://blog.csdn.net/qq_29326717'},
                         {id: '3', name: '特卫预约', url: 'https://www.baidu.com/'},
                         {id: '4', name: '武术培训', url: 'https://www.baidu.com/'},
+                        {id: 'managerSys', name: '后台管理', url: '/liveManager/liveList'},
                     ],
                     stockCode: '870431',
                     citys: [
@@ -75,7 +87,15 @@
             // 点击头部导航
             clickHeaderNav(item){
                 let self = this;
-                window.open(item.url, '_blank')
+                if(item.id == 'managerSys'){
+                    self.$router.push({
+                        path: item.url,
+                        query: {}
+                    });
+                }else{
+                    window.open(item.url, '_blank')
+                }
+                
             },
             // 点击头部城市
             clickHeaderCity(item){

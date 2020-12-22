@@ -30,16 +30,13 @@
             self.getListData()
             self.getDemoData()
             // vuex
-            if(!self.getterLiveList || !self.getterLiveList.length){
-                self.getLiveList()
-            }
-            if(!self.getterPlayerList || !self.getterPlayerList.length){
-                self.getPlayerList()
-            }
+            self.getLiveList()
+            self.getPlayerList()
 
         },
         mounted(){
             let self = this;
+            // debugger;
         },
         methods: {
             ...mapActions( // 语法糖
@@ -86,28 +83,14 @@
             // 保存
             save(){
                 let self = this;
-                /*
                 if(self.isEdit){
                     let i = self.currLive.index
                     self.listData[i] = {...self.addEditForm};
+                    // self.getLiveList[i] = {...self.addEditForm};
                 }else{
                     self.listData.push({...self.addEditForm});
                     self.$nextTick();
                 }
-                */
-
-                // vuex
-                if(self.isEdit){
-                    let i = self.currLive.index
-                    let newData = [];
-                    self.getterLiveList[i] = {...self.addEditForm};
-                    self.updateLiveList(self.getterLiveList);
-                }else{
-                    self.getterLiveList.push({...self.addEditForm});
-                    self.updateLiveList(self.getterLiveList);
-                    self.$nextTick();
-                }
-
                 
                 self.isList = true;
             },

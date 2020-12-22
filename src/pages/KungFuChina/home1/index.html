@@ -94,7 +94,31 @@
                 <el-col :span="16">
                     <el-row class="live_wrap">
                         <h4 class="modal_title_wrap"><img :src="icon01" alt="直播"><el-link class="modal_title">直播</el-link></h4>
-                        <el-row>
+                        <!-- <el-row v-if="getterLiveList.length">
+                            <el-col :span="12">
+                                <div class="live_cover">直播封面</div>
+                            </el-col>
+                            <el-col :span="12" class="live_msg">
+                                <div class="live_time"><strong>【正在直播】</strong><span class="time">{{ getterLiveList[0].startTime }}</span></div>
+                                <h4 class="live_title">{{ getterLiveList[0].title }}</h4>
+                                <div class="live_player"><span>{{ getterLiveList[0].player1.name }}</span><em style="font-size: 16px;color: #DA3C40;">VS</em><span>{{ getterLiveList[0].player1.name }}</span></div>
+                                <p class="live_place t_r">{{ getterLiveList[0].address }}</p>
+                                <p class="live_synopsis">{{ getterLiveList[0].intro }}</p>
+                            </el-col>
+                        </el-row> -->
+                        <el-row v-if="getterLiveList.length">
+                            <el-col :span="12">
+                                <div class="live_cover">直播封面</div>
+                            </el-col>
+                            <el-col :span="12" class="live_msg">
+                                <div class="live_time"><strong>【正在直播】</strong><span class="time">{{ liveInfo.startTime }}</span></div>
+                                <h4 class="live_title">{{ liveInfo.title }}</h4>
+                                <div class="live_player"><span>{{ liveInfo.player1.name }}</span><em style="font-size: 16px;color: #DA3C40;">VS</em><span>{{ getterLiveList[0].player1.name }}</span></div>
+                                <p class="live_place t_r">{{ liveInfo.address }}</p>
+                                <p class="live_synopsis">{{ liveInfo.intro }}</p>
+                            </el-col>
+                        </el-row>
+                        <el-row v-else>
                             <el-col :span="12">
                                 <div class="live_cover">直播封面</div>
                             </el-col>
@@ -106,6 +130,7 @@
                                 <p class="live_synopsis">虽然乔布斯的建议听起来不太靠谱，但马克认为，如果没有史蒂夫的建议，Salesforce就不会取得今天的成功。虽然乔布斯的建议听起来不太靠谱，但马克认为，如果没有......</p>
                             </el-col>
                         </el-row>
+                        
                     </el-row>
                     <el-row class="bodyguard_wrap">
                         <h4 class="modal_title_wrap">

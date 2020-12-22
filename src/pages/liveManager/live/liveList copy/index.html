@@ -15,7 +15,7 @@
         </el-row>
     
         <!-- <el-table ref="liveListTable" :data="listData" tooltip-effect="dark" @selection-change="handleSelectionChange"> -->
-        <el-table ref="liveListTable" :data="getterLiveList" tooltip-effect="dark" @selection-change="handleSelectionChange">
+        <el-table ref="liveListTable" :data="getterPlayerList" tooltip-effect="dark" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55"></el-table-column>
             <el-table-column prop="title" label="直播标题" show-overflow-tooltip></el-table-column>
             <el-table-column prop="startTime" label="直播开始时间" show-overflow-tooltip></el-table-column>
@@ -31,7 +31,6 @@
                     <span> {{ scope.row.isScene ? '是' : '否' }} </span>
                 </template>
             </el-table-column>
-            <el-table-column prop="address" label="比赛场地" show-overflow-tooltip></el-table-column>
             <el-table-column prop="viewersNum" label="观看人数" show-overflow-tooltip></el-table-column>
             <el-table-column label="比赛选手" show-overflow-tooltip>
                 <template slot-scope="scope">
@@ -62,15 +61,10 @@
                         </el-form-item>
                     </el-col>
                     <el-col :span="12">
-                        <el-form-item label="比赛场地">
-                            <el-input v-model="addEditForm.address" disabled></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <!-- <el-col :span="12">
                         <el-form-item label="观看人数">
                             <el-input v-model="addEditForm.viewersNum" disabled></el-input>
                         </el-form-item>
-                    </el-col> -->
+                    </el-col>
                     <el-col :span="12">
                         <el-form-item label="直播开始时间">
                             <el-date-picker v-model="addEditForm.startTime" type="datetime" value-format="yyyy-MM-dd HH:mm:ss" placeholder="选择直播开始时间"></el-date-picker>

@@ -1,6 +1,5 @@
 <template>
     <div class="live_manager">
-        <router-view/>
         <el-container>
             <el-header class="header">
                 <el-row>
@@ -30,7 +29,7 @@
             </el-header>
             <el-row class="welcome p_r">
                 <span>您好，admin！欢迎登陆功夫中国后台管理系统</span>
-                <el-button type="text" class="go_portal p_a">去门户网站<i class="el-icon-d-arrow-right"></i></el-button>
+                <el-button type="text" class="go_portal p_a" @click="goPortal">去门户网站<i class="el-icon-d-arrow-right"></i></el-button>
             </el-row>
             <el-container class="container">
                 <el-aside width="200px">
@@ -53,7 +52,7 @@
         components: {},
         data(){
             return {
-                activeNavH: '1',
+                activeNavH: '2',
                 activeNavV: '1',
                 navVerticalData: [],
             };
@@ -79,7 +78,7 @@
                         {id: '1', name: '首页', routeName: '', path: ''}
                     ],
                     [
-                        {id: '1', name: '直播列表', routeName: '', path: ''},
+                        {id: '1', name: '直播列表', routeName: '', path: 'liveList'},
                         {id: '2', name: '礼物列表', routeName: '', path: ''},
                         {id: '3', name: '比赛选手', routeName: '', path: ''},
                         {id: '4', name: '选手所获得礼物', routeName: '', path: ''},
@@ -110,6 +109,15 @@
                 self.$nextTick(() => {
                     self.activeNavV = '1';
                 })
+            },
+            // 去门户网站
+            goPortal(){
+                let self = this;
+
+                self.$router.push({
+                    path: '/KungFuChina/home',
+                    query: {}
+                });
             },
         }
     }
