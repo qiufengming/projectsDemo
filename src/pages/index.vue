@@ -6,19 +6,27 @@
 </template>
 
 <script>
+    // const { count } = require('./counter');
+    // import { count } from './counter';
     export default {
         components: {},
         data(){
-            return {};
+            return {
+            };
         },
-        created(){},
-        mounted(){},
-        methods: {}
+        created(){
+        },
+        mounted(){
+        },
+        methods: {
+        }
+
+
     }
 </script>
 
 <style lang="less" rel="stylesheet/less" type="text/less" scoped>
 .project_wrap{
-    padding: 1px;
+    padding: 0px;
 }
 </style>

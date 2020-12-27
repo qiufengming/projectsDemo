@@ -149,56 +149,68 @@
             // 获取菜单
             getMenus(){
                 let self = this;
-                let data = [
-                    {id: '1', name: '资讯', url: 'https://www.baidu.com/'},
-                    {id: '2', name: '特卫', url: 'https://blog.csdn.net/qq_29326717'},
-                    {id: '3', name: '门票', url: 'https://www.baidu.com/'},
-                    {id: '4', name: '人物', url: 'https://www.baidu.com/'},
-                    {id: '5', name: '影视', url: 'https://www.baidu.com/'},
-                    {id: '6', name: '阅读', url: 'https://www.baidu.com/'},
-                    {id: '7', name: '智库', url: 'https://www.baidu.com/'},
-                    {id: '8', name: '俱乐部', url: 'https://www.baidu.com/'},
-                    {id: '9', name: '赛事', url: 'https://www.baidu.com/'},
-                    {id: '10', name: '演艺', url: 'https://www.baidu.com/'},
-                    {id: '11', name: '学堂', url: 'https://www.baidu.com/'},
-                    {id: '12', name: '直播', url: 'https://www.baidu.com/'},
-                    {id: '13', name: '图片', url: 'https://www.baidu.com/'},
-                    {id: '14', name: '访谈', url: 'https://www.baidu.com/'},
-                    {id: '15', name: '养生', url: 'https://www.baidu.com/'},
-                    {id: '16', name: '武校', url: 'https://www.baidu.com/'},
-                    {id: '17', name: '资讯', url: 'https://www.baidu.com/'},
-                    {id: '18', name: '特卫', url: 'https://www.baidu.com/'},
-                    {id: '19', name: '门票', url: 'https://www.baidu.com/'},
-                    {id: '20', name: '人物', url: 'https://www.baidu.com/'},
-                    {id: '21', name: '影视', url: 'https://www.baidu.com/'},
-                    {id: '22', name: '阅读', url: 'https://www.baidu.com/'},
-                    {id: '23', name: '智库', url: 'https://www.baidu.com/'},
-                    {id: '24', name: '俱乐部', url: 'https://www.baidu.com/'},
-                    {id: '25', name: '赛事', url: 'https://www.baidu.com/'},
-                    {id: '26', name: '演艺', url: 'https://www.baidu.com/'},
-                    {id: '27', name: '学堂', url: 'https://www.baidu.com/'},
-                    {id: '28', name: '直播', url: 'https://www.baidu.com/'},
-                    {id: '29', name: '图片', url: 'https://www.baidu.com/'},
-                    {id: '30', name: '访谈', url: 'https://www.baidu.com/'},
-                ];
-                self.menus = data;
+                self.$http.get('/apis/kungfuChina/getMenus').then(res => {
+                    let d = res.data.data;
+                    self.menus = d;
+                }).catch(err => {
+                    console.log(err);
+                });
+                // let data = [
+                //     {id: '1', name: '资讯', url: 'https://www.baidu.com/'},
+                //     {id: '2', name: '特卫', url: 'https://blog.csdn.net/qq_29326717'},
+                //     {id: '3', name: '门票', url: 'https://www.baidu.com/'},
+                //     {id: '4', name: '人物', url: 'https://www.baidu.com/'},
+                //     {id: '5', name: '影视', url: 'https://www.baidu.com/'},
+                //     {id: '6', name: '阅读', url: 'https://www.baidu.com/'},
+                //     {id: '7', name: '智库', url: 'https://www.baidu.com/'},
+                //     {id: '8', name: '俱乐部', url: 'https://www.baidu.com/'},
+                //     {id: '9', name: '赛事', url: 'https://www.baidu.com/'},
+                //     {id: '10', name: '演艺', url: 'https://www.baidu.com/'},
+                //     {id: '11', name: '学堂', url: 'https://www.baidu.com/'},
+                //     {id: '12', name: '直播', url: 'https://www.baidu.com/'},
+                //     {id: '13', name: '图片', url: 'https://www.baidu.com/'},
+                //     {id: '14', name: '访谈', url: 'https://www.baidu.com/'},
+                //     {id: '15', name: '养生', url: 'https://www.baidu.com/'},
+                //     {id: '16', name: '武校', url: 'https://www.baidu.com/'},
+                //     {id: '17', name: '资讯', url: 'https://www.baidu.com/'},
+                //     {id: '18', name: '特卫', url: 'https://www.baidu.com/'},
+                //     {id: '19', name: '门票', url: 'https://www.baidu.com/'},
+                //     {id: '20', name: '人物', url: 'https://www.baidu.com/'},
+                //     {id: '21', name: '影视', url: 'https://www.baidu.com/'},
+                //     {id: '22', name: '阅读', url: 'https://www.baidu.com/'},
+                //     {id: '23', name: '智库', url: 'https://www.baidu.com/'},
+                //     {id: '24', name: '俱乐部', url: 'https://www.baidu.com/'},
+                //     {id: '25', name: '赛事', url: 'https://www.baidu.com/'},
+                //     {id: '26', name: '演艺', url: 'https://www.baidu.com/'},
+                //     {id: '27', name: '学堂', url: 'https://www.baidu.com/'},
+                //     {id: '28', name: '直播', url: 'https://www.baidu.com/'},
+                //     {id: '29', name: '图片', url: 'https://www.baidu.com/'},
+                //     {id: '30', name: '访谈', url: 'https://www.baidu.com/'},
+                // ];
+                // self.menus = data;
             },
             // 获取新闻列表
             getNewsList(){
                 let self = this;
-                let data = [
-                    {id: '1', title: '国际赛事：西鑫度武术俱乐部以中央电视台和中国武术职业联盟为平台，将传承发扬中国武术的搏击技术技法', link: 'https://www.baidu.com/'},
-                    {id: '2', title: '国内赛事：合职业中专坐落于陕西西安市，是一所国家承认学历的新型职业技能学校，学校于2015年开设的运动训练专', link: 'https://www.baidu.com/'},
-                    {id: '3', title: '2015年开设的运动训练专业是经西安市教育部门批准的特色专业，地处西安市中心钟楼商业区，交通', link: 'https://www.baidu.com/'},
-                    {id: '4', title: '发展传统武术为已任，旨在打造具有“山西领先、全国一流、世界知名”的文化产业。', link: 'https://www.baidu.com/'},
-                    {id: '5', title: '中央电视台和中国武术职业联盟为平台，将传承发扬中国武术的搏击技术技法、搜索', link: 'https://www.baidu.com/'},
-                    {id: '6', title: '2011-2012WMA 中国武术职业联赛(团体赛)', link: 'https://www.baidu.com/'},
-                    {id: '7', title: '中国武术职业联赛明星赛鑫度张开印夺冠', link: 'https://www.baidu.com/'},
-                    {id: '8', title: '教授，中共党员，国家级教练员。研究生学历。现任西安体育学院系副主任', link: 'https://www.baidu.com/'},
-                    {id: '9', title: '世界及全国比赛中斩获各项大奖', link: 'https://www.baidu.com/'},
-                    {id: '10', title: '“精武门”综合格斗职业联赛（2016-2017赛季）近期将于湖北卫视播出，敬请期待！', link: 'https://www.baidu.com/'},
-                ];
-                self.newsList = data;
+                self.$http.get('/apis/kungfuChina/getNewsList').then(res => {
+                    let d = res.data;
+                    self.newsList = d;
+                }).catch(err => {
+                    console.log(err);
+                });
+                // let data = [
+                //     {id: '1', title: '国际赛事：西鑫度武术俱乐部以中央电视台和中国武术职业联盟为平台，将传承发扬中国武术的搏击技术技法', link: 'https://www.baidu.com/'},
+                //     {id: '2', title: '国内赛事：合职业中专坐落于陕西西安市，是一所国家承认学历的新型职业技能学校，学校于2015年开设的运动训练专', link: 'https://www.baidu.com/'},
+                //     {id: '3', title: '2015年开设的运动训练专业是经西安市教育部门批准的特色专业，地处西安市中心钟楼商业区，交通', link: 'https://www.baidu.com/'},
+                //     {id: '4', title: '发展传统武术为已任，旨在打造具有“山西领先、全国一流、世界知名”的文化产业。', link: 'https://www.baidu.com/'},
+                //     {id: '5', title: '中央电视台和中国武术职业联盟为平台，将传承发扬中国武术的搏击技术技法、搜索', link: 'https://www.baidu.com/'},
+                //     {id: '6', title: '2011-2012WMA 中国武术职业联赛(团体赛)', link: 'https://www.baidu.com/'},
+                //     {id: '7', title: '中国武术职业联赛明星赛鑫度张开印夺冠', link: 'https://www.baidu.com/'},
+                //     {id: '8', title: '教授，中共党员，国家级教练员。研究生学历。现任西安体育学院系副主任', link: 'https://www.baidu.com/'},
+                //     {id: '9', title: '世界及全国比赛中斩获各项大奖', link: 'https://www.baidu.com/'},
+                //     {id: '10', title: '“精武门”综合格斗职业联赛（2016-2017赛季）近期将于湖北卫视播出，敬请期待！', link: 'https://www.baidu.com/'},
+                // ];
+                // self.newsList = data;
             },
             // 页面跳转
             goPage(url){

@@ -1,0 +1,15 @@
+[
+    {"id": "pj13", "name": "CAMEL（原名AML，反洗钱）", "path": "/standardLib", "pathName": "standardLib"},
+    {"id": "pj12", "name": "MAGIC（配置）", "path": "/standardLib", "pathName": "standardLib"},
+    {"id": "pj11", "name": "产品主结构设计", "path": "/standardLib", "pathName": "standardLib"},
+    {"id": "pj10", "name": "文档结构化", "path": "/docStructure/docStructureList", "pathName": "docStructureList"},
+    {"id": "pj09", "name": "评估度量", "path": "/standardLib", "pathName": "standardLib"},
+    {"id": "pj08", "name": "华为公司内部技术标准库", "path": "/standardLib", "pathName": "standardLib"},
+    {"id": "pj07", "name": "国际数字资产交易中心后台", "path": "/standardLib", "pathName": "standardLib"},
+    {"id": "pj06", "name": "国际区块链IBC", "path": "/standardLib", "pathName": "standardLib"},
+    {"id": "pj05", "name": "朗威物流系统", "path": "/standardLib", "pathName": "standardLib"},
+    {"id": "pj04", "name": "LED灯产品官网", "path": "/standardLib", "pathName": "standardLib"},
+    {"id": "pj03", "name": "功夫中国门户网站", "path": "/KungFuChina/home", "pathName": "KungFuChinaHome1"},
+    {"id": "pj02", "name": "功夫中国门后台管理系统", "path": "/liveManager", "pathName": "liveManager"},
+    {"id": "pj01", "name": "株洲市城市建设管理及公共信息平台", "path": "/zhuzhouCityEnergy", "pathName": "zhuzhouCityEnergy"}
+]

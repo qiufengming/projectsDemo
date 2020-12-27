@@ -1,0 +1,44 @@
+<div class="left_tree_wrap">
+    <el-row class="filter_wrap">
+        <el-col :span="20">
+            <el-input placeholder="输入关键字进行过滤" v-model="filterText"> </el-input>
+        </el-col>
+        <el-col :span="4" class="t_c">
+            <el-button @click="openTreeCfgDlg" type="text" icon="el-icon-setting" class="btn_set_tree"></el-button>
+        </el-col>
+    </el-row>
+    <el-row class="tree_wrap">
+        <el-tree class="chapter_tree" :data="tree" :props="defaultProps" default-expand-all 
+            :filter-node-method="filterNode" ref="chapterTree"
+        ></el-tree>
+    </el-row>
+
+    <!-- dialog -->
+    <el-dialog title="配置文档章节" :visible.sync="setChapterDlg" width="90%" :close-on-click-modal="false" class="cfg_tree_dlg">
+        <el-row>
+            <el-table :data="configTableData" class="table_cfg_tree" row-key="id" border default-expand-all :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
+                <el-table-column prop="title" label="标题" width="250">
+                    <template slot-scope="scope">
+                        <el-input v-if="scope.row.isEdit" placeholder="章节标题" v-model="scope.row.title"> </el-input>
+                        <span v-else v-text="scope.row.title"></span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="author" label="作者" width="120"> </el-table-column>
+                <el-table-column prop="intro" label="简介"> </el-table-column>
+                <el-table-column prop="createTime" label="创建时间" sortable width="160"></el-table-column>
+                <el-table-column label="操作" width="90">
+                    <template slot-scope="scope">
+                        <el-button size="mini" type="text" @click="edit(scope.$index, scope.row)">编辑</el-button>
+                        <el-button size="mini" type="text" @click="del(scope.$index, scope.row)">删除</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </el-row>
+        <span slot="footer" class="dlg_footer">
+            <el-button @click="setChapterDlg = false">取 消</el-button>
+            <el-button type="primary" @click="saveTreeConfig">保 存</el-button>
+        </span>
+    </el-dialog>
+
+
+</div>

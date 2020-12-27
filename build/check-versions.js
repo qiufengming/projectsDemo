@@ -1,7 +1,11 @@
 'use strict'
+/* https://www.cnblogs.com/ye-hcj/p/7074363.html */
+// chalk插件：在控制台中输出不同的颜色的字，大致这样用chalk.blue('Hello world')，这款插件只能改变命令行中的字体颜色
 const chalk = require('chalk')
+// semver插件，是用来对特定的版本号做判断的，比如
 const semver = require('semver')
 const packageConfig = require('../package.json')
+// shelljs插件：用来执行Unix系统命令
 const shell = require('shelljs')
 
 function exec (cmd) {

@@ -1,0 +1,45 @@
+.doc_structure_details{
+    .flex_box{
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+        flex: 1;
+        flex-basis: auto;
+        box-sizing: border-box;
+        min-width: 0;
+        .flex_item{
+            height: calc(100vh - 70px);
+            min-height: 300px;
+            display: block;
+            overflow: auto;
+            box-sizing: border-box;
+            // flex-basis 属性用于设置或检索弹性盒伸缩基准值
+            // flex-shrink的默认值为1，如果没有显示定义该属性，将会自动按照默认值1在所有因子相加之后计算比率来进行空间收缩。
+            // flex-grow 属性用于设置或检索弹性盒子的扩展比率
+        }
+        .left_wrap{
+            -ms-flex-negative:0;
+            flex-shrink:0;
+            // background-color:khaki;
+            width: 250px;
+            border-right: 1px solid #E4E7ED;
+        }
+        .center_wrap{
+            -webkit-box-flex:1;
+            -ms-flex:1;
+            flex:1;
+            -ms-flex-preferred-size:auto;
+            flex-basis:auto;
+            padding:20px;
+            // background-color:lightblue;
+        }
+        .right_wrap{
+            -ms-flex-negative:0;
+            flex-shrink:0;
+            // background-color:pink;
+            width: 250px;
+            border-left: 1px solid #E4E7ED;
+        }
+    }
+}

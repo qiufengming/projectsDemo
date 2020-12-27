@@ -1,0 +1,101 @@
+{
+    "id": "doc09",
+    "name": "文档九",
+    "author": "依依",
+    "intro": "这是文档的简介",
+    "createTime": "2013-12-25 16:42:52",
+    "updateTime": "2020-01-25 16:50:00",
+    "chapter": [
+        {
+            "id": "chapter001",
+            "isParent": true,
+            "parentId": null,
+            "rootParent": null,
+            "title": "1 第一章",
+            "intro": "这是第一章的简介~",
+            "author": "依依",
+            "createTime": "2013-12-25 16:42:52",
+            "updateTime": "2020-01-25 16:50:00",
+            "content": "是速度速度速度SV时候",
+            "contentTag": "<p>是速度速度速度SV时候</p>"
+        },
+        {
+            "id": "chapter001001",
+            "isParent": false,
+            "parentId": "chapter001",
+            "rootParent": "chapter001",
+            "title": "1.1 第一章的第一小节",
+            "intro": "红红火火恍恍惚惚~",
+            "author": "李四",
+            "createTime": "2016-12-25 16:42:52",
+            "updateTime": "2020-01-25 16:50:00",
+            "content": "舒服舒服撒地方干啥的风格",
+            "contentTag": "<p>舒服舒服撒地方干啥的风格</p>"
+        },
+        {
+            "id": "chapter001002",
+            "isParent": true,
+            "parentId": "chapter001",
+            "rootParent": "chapter001",
+            "title": "1.2 第一章的第二小节",
+            "intro": "电饭煲多福多寿过生日~",
+            "author": "王五",
+            "createTime": "2017-12-25 16:42:52",
+            "updateTime": "2020-01-25 16:50:00",
+            "content": "分行打发大水谈何容易看",
+            "contentTag": "<p>分行打发大水谈何容易看</p>"
+        },
+        {
+            "id": "chapter001002001",
+            "isParent": false,
+            "parentId": "chapter001002",
+            "rootParent": "chapter001",
+            "title": "1.2.1 第一章的第二小节的第一小节",
+            "intro": "是十分尬舞地方~",
+            "author": "赵六",
+            "createTime": "2019-12-25 16:42:52",
+            "updateTime": "2020-01-25 16:50:00",
+            "content": "打飞机按实际挨过打属于",
+            "contentTag": "<p>打飞机按实际挨过打属于</p>"
+        },
+        {
+            "id": "chapter002",
+            "isParent": true,
+            "parentId": null,
+            "rootParent": null,
+            "title": "2 第二章",
+            "intro": "这是第二章的简介~",
+            "author": "张三",
+            "createTime": "2014-12-25 16:42:52",
+            "updateTime": "2020-01-25 16:50:00",
+            "content": "的法国萨顾飒师德师风搜房的",
+            "contentTag": "<p>的法国萨顾飒师德师风搜房的</p>"
+        },
+        {
+            "id": "chapter002001",
+            "isParent": false,
+            "parentId": "chapter002",
+            "rootParent": "chapter002",
+            "title": "2.1 第二章的第一小节",
+            "intro": "对输入复核人合同号~",
+            "author": "李四",
+            "createTime": "2018-12-25 16:42:52",
+            "updateTime": "2020-01-25 16:50:00",
+            "content": "润体乳斯特任何",
+            "contentTag": "<p>润体乳斯特任何</p>"
+        },
+        {
+            "id": "chapter003",
+            "isParent": false,
+            "parentId": null,
+            "rootParent": null,
+            "title": "3 第三章",
+            "intro": "这是第三章的简介~",
+            "author": "李四",
+            "createTime": "2015-12-25 16:42:52",
+            "updateTime": "2020-01-25 16:50:00",
+            "content": "地方不得不",
+            "contentTag": "<p>地方不得不</p>"
+        }
+    ]
+}
